@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置User对象-->
+    <bean id="user" class="com.mc.spring5.User"></bean>
+    <!--set注入属性-->
+   <!-- scope="prototype"设置实例为多例，
+    默认(singleton)为单例。就是调用一个对象不重复创建对象消耗内存-->
+    <bean id="book" class="com.mc.spring5.Book" scope="prototype">
+        <property name="bname" value="易筋经"/>
+        <property name="bauth" value="达摩老祖"/>
+       <!-- 设置属性为空值-->
+        <!--<property name="byers"><null/></property>-->
+        <!-- 设置属性包含特殊字符-->
+        <property name="byers">
+            <value><![CDATA[<<原物九年>>]]></value>
+        </property>
+    </bean>
+
+    <!--有参构造注入-->
+    <bean id="order" class="com.mc.spring5.Order">
+        <constructor-arg name="oaddress" value="成都"></constructor-arg>
+        <constructor-arg name="oname" value="飞机"></constructor-arg>
+    </bean>
+</beans>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--   开启组件扫描
+       如果扫描多个包填写上级目录
+    -->
+    <context:component-scan base-package="com.mc.spring5.BeanNote"></context:component-scan>
+
+ <!--&lt;!&ndash;   示例一
+        use-default-filters:表示现在不适应默认的filter,自己配置filter
+        context:include-filte:设置扫描哪些内容
+        扫描带@Controller注解的内容
+        &ndash;&gt;
+    <context:component-scan base-package="com.mc" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+&lt;!&ndash;    示例二
+          context:include-filte:设置不扫描哪些内容
+           不扫描带@Service注解的内容
+&ndash;&gt;
+    <context:component-scan base-package="com.mc" >
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>-->
+
+</beans>

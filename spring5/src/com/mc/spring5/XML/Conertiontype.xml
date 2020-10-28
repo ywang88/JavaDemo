@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="stu" class="com.mc.spring5.CollectionType.STu">
+        <!--数组属性注入-->
+        <property name="courses">
+            <array>
+                <value>java课程</value>
+                <value>数据库课程</value>
+            </array>
+        </property>
+        <!--list属性注入-->
+        <property name="list">
+            <list>
+                <value>张三</value>
+                <value>小三</value>
+            </list>
+        </property>
+        <!--map属性注入-->
+        <property name="stringMap">
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="PHP" value="php"></entry>
+            </map>
+        </property>
+        <!--set属性注入-->
+        <property name="stringSet">
+            <set>
+                <value>123</value>
+                <value>1232</value>
+            </set>
+        </property>
+
+        <!--list对象-->
+        <property name="coureseList">
+            <list>
+                <ref bean="cour"></ref>
+                <ref bean="cour1"></ref>
+            </list>
+        </property>
+
+    </bean>
+    <bean id="cour" class="com.mc.spring5.CollectionType.Courese">
+        <property name="couresename" value="计算机网络"></property>
+    </bean>
+    <bean id="cour1" class="com.mc.spring5.CollectionType.Courese">
+        <property name="couresename" value="代码之美"></property>
+    </bean>
+
+    <!--抽取公共部分-->
+    <util:list id="booklist">
+        <value>易筋经</value>
+        <value>九阳升高</value>
+        <value>九阴正经</value>
+    </util:list>
+
+    <bean id="book" class="com.mc.spring5.CollectionType.Book">
+        <property name="bname" ref="booklist"/>
+    </bean>
+
+</beans>
